@@ -6,18 +6,18 @@
 	xdef	vsync,random,sinset,atan
 
 ;------------------------------------------------------------------------------
-vsync:				; original name unknown
+vsync:					; [TODO] original name unknown
 	move	#$2300,sr
-.loop:
+.loop:					; [TODO] original name unknown
 	tst.b	int_flg
 	bne.b	.loop
 	rts
 
-random:
+random:					; [TODO] locate original library
 	move.l	ranum,d1
 	bne.b	.number
 	move.l	#$2A6D365A,d1
-.number:
+.number:				; [TODO] original name unknown
 	move.l	d1,d0
 	asl.l	#2,d1
 	add.l	d0,d1
@@ -39,7 +39,7 @@ sinset:
 	subi.w	#$80,d0
 	move.w	sintable(pc,d0.w),d0
 	rts
-sintable:
+sintable:				; [TODO] original formatting unknown
 	dc.w	0000,0006,0012,0018,0025,0031,0037,0043
 	dc.w	0049,0056,0062,0068,0074,0080,0086,0092
 	dc.w	0097,0103,0109,0115,0120,0126,0131,0136
@@ -93,11 +93,11 @@ atan:
 	tst.w	d3
 	bpl.b	loc_1DD0
 	neg.w	d3
-loc_1DD0:
+loc_1DD0:				; [TODO] original name unknown
 	tst.w	d4
 	bpl.b	loc_1DD6
 	neg.w	d4
-loc_1DD6:
+loc_1DD6:				; [TODO] original name unknown
 	cmp.w	d3,d4
 	bcc.b	loc_1DE6
 	lsl.l	#8,d4
@@ -105,29 +105,29 @@ loc_1DD6:
 	moveq	#0,d0
 	move.b	atantbl(pc,d4.w),d0
 	bra.b	loc_1DF0
-loc_1DE6:
+loc_1DE6:				; [TODO] original name unknown
 	lsl.l	#8,d3
 	divu.w	d4,d3
 	moveq	#$40,d0
 	sub.b	atantbl(pc,d3.w),d0
-loc_1DF0:
+loc_1DF0:				; [TODO] original name unknown
 	tst.w	d1
 	bpl.b	loc_1DFA
 	neg.w	d0
 	addi.w	#$80,d0
-loc_1DFA:
+loc_1DFA:				; [TODO] original name unknown
 	tst.w	d2
 	bpl.b	loc_1E04
 	neg.w	d0
 	addi.w	#$100,d0
-loc_1E04:
+loc_1E04:				; [TODO] original name unknown
 	movem.l	(sp)+,d3-d4
 	rts
-loc_1E0A:
+loc_1E0A:				; [TODO] original name unknown
 	move.w	#$40,d0
 	movem.l	(sp)+,d3-d4
 	rts
-atantbl:
+atantbl:				; [TODO] original formatting unknown
 	dc.b	00,00,00,00,01,01
 	dc.b	01,01,01,01,02,02
 	dc.b	02,02,02,02,03,03
